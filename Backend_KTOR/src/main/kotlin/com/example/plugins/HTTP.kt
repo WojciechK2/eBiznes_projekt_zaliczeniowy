@@ -16,6 +16,6 @@ fun Application.configureHTTP() {
         allowHeader(HttpHeaders.ContentType)
         allowCredentials = true
 
-        allowHost("localhost:3000", schemes = listOf("https"))
+        allowHost("wojciechklasa-frontend.azurewebsites.net", schemes = listOf("https"))
     }
 }
