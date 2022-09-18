@@ -1,5 +1,7 @@
 # eBiznes-Project
 
+Frontend and bakend components fused in one repository.
+
 # SONARCLOUD
 
 ### QUALITY GATE!!!
