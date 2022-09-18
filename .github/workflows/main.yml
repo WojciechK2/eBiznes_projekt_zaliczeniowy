@@ -1,0 +1,28 @@
+name: eBiznes Projekt_zaliczeniowy FrontEnd
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+  DOCKER_HUB_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+  DOCKER_HUB_IMAGE_NAME: ${{ secrets.DOCKER_HUB_USERNAME }}/ebiznes_ktor_frontend
+
+jobs:
+  build-and-deploy:
+    environment: Deploy
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: Frontend_React
+        
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login into DockerHub
+        run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
+      - name: Build the Docker image
+        run: docker build --file Dockerfile -t $DOCKER_HUB_IMAGE_NAME -t $DOCKER_HUB_IMAGE_NAME:${{ github.sha }} .
+      - name: Push the Docker image
+        run: docker push $DOCKER_HUB_IMAGE_NAME --all-tags
