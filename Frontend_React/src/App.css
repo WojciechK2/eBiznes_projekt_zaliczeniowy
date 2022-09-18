@@ -1,0 +1,30 @@
+.mainContentContainer {
+    display: flex;
+}
+
+.sideNavigation {
+    background-color: aqua;
+    min-width: 20%;
+}
+
+.productsComponent .paymentsComponent {
+    flex-grow: 1;
+}
+
+.productsDisplay {
+    text-decoration: none;
+}
+
+.productCardView {
+    margin: 2%;
+}
+
+.layoutHeader{
+    text-align: center;
+    font-size: large;
+    background-color: black;
+}
+
+.shopLink {
+    color: white;
+}
