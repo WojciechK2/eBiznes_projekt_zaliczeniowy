@@ -14,13 +14,16 @@ jobs:
     environment: Deploy
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: Backend_KTOR
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
       - name: FixCORS
         run: sed -i 's+http://localhost:3000+https://wojciechklasaserverfrontend.azurewebsites.net+g' /src/main/kotlin/com/example/plugins/HTTP.kt
-
       - name: Login into DockerHub
         run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
 
