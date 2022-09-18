@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: FixCORS
-        run: sed -i 's+http://localhost:3000+wojciechklasa-frontend.azurewebsites.net+g' src/main/kotlin/com/example/plugins/HTTP.kt
+        run: sed -i 's+http://localhost:3000+wojciechklasa-frontend.azurewebsites.net,schemes+=+listof+("https")+g' src/main/kotlin/com/example/plugins/HTTP.kt
       - name: Login into DockerHub
         run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
 
