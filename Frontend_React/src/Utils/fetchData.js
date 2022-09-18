@@ -1,7 +1,6 @@
 export async function fetchData(url) {
 
     const init = {
-        mode: "cors",
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
