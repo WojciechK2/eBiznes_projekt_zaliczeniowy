@@ -1,0 +1,16 @@
+services:
+    ebiznes_backend:
+        container_name: ebiznes_project_backend
+        build: ./Backend_KTOR
+        ports:
+          - "8080:8080"
+        env_file:
+          - Backend_KTOR/.env
+
+    ebiznes_frontend:
+        container_name: ebiznes_project_frontend
+        build: ./Frontend_React
+        ports:
+          - "3000:3000"
+        env_file:
+          - Frontend_React/.env
