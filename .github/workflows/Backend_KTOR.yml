@@ -29,7 +29,7 @@ jobs:
         run: less src/main/kotlin/com/example/plugins/HTTP.kt
 
       - name: FixCookies
-        run: sed '22 i cookie.secure=true \n cookie.extensions["SameSite"] = "None"' src/main/kotlin/com/example/plugins/Sessions.kt
+        run: sed -i '22 i cookie.secure=true \n cookie.extensions["SameSite"] = "None"' src/main/kotlin/com/example/plugins/Sessions.kt
         
       - name: DisplayHTTP.kt
         run: less src/main/kotlin/com/example/plugins/Sessions.kt
