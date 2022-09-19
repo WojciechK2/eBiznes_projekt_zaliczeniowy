@@ -19,20 +19,9 @@ const baseURL = process.env.REACT_APP_SERVER_URL
 
 function App() {
 
-    const [loggedIn, setLoggedIn] = useState(false)
 
-    const setLoggedInValue = (value) =>{
-        setLoggedIn(value)
-    }
-
-    useEffect(() => {
-        fetchDataWithCredentials(baseURL+"checklogin").then((response) => response.json()).then(response => {
-            console.log(response)
-            setLoggedInValue(response)})
-    }, [])
 
     return (
-        <loggedInContext.Provider value={ {loggedIn , setLoggedInValue }}>
             <Routes>
                 <Route path={pathsStruct.MainPage} element={<Layout/>}>
                     <Route index element={<Products/>}/>
@@ -46,7 +35,6 @@ function App() {
                 </Route>
                 <Route path="*" element={<NoPage errorMessage={"404 no Page Found"}/>}/>
             </Routes>
-        </loggedInContext.Provider>
     );
 }
 
