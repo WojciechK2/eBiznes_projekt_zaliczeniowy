@@ -29,7 +29,7 @@ fun Route.oAuthRouting() {
                 call.respondRedirect(System.getenv("FRONTEND_SERVER_URL"))
             }
             get("/callback_github"){
-                val principal: OAuthAccessTokenResponse.OAuth2? = call.authentication.principal()
+                val principal: OAuthAccessTokenResponse.OAuth2? = call.principal()
                 call.sessions.set(UserSession(principal?.accessToken.toString(),"github"))
                 call.respondRedirect(System.getenv("FRONTEND_SERVER_URL"))
             }
