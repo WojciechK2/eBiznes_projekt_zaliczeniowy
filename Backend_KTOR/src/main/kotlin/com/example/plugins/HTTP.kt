@@ -12,10 +12,16 @@ fun Application.configureHTTP() {
         allowMethod(HttpMethod.Post)
         allowMethod(HttpMethod.Get)
         allowHeader(HttpHeaders.AccessControlAllowOrigin)
+        allowMethod(HttpMethod.Delete)
+        allowHeader(HttpHeaders.Authorization)
+        exposeHeader(HttpHeaders.Authorization)
 
         allowHeader(HttpHeaders.ContentType)
         allowCredentials = true
 
         allowHost("wojciechklasa-frontend.azurewebsites.net", schemes = listOf("https"))
+        
+        allowHeader("user_session")
+        exposeHeader("user_session")
     }
 }
