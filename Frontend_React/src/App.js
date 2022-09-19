@@ -9,13 +9,10 @@ import BasketItem from "./ShopComponents/Basket/BasketItem";
 import LoginComponent from "./ShopComponents/Login/LoginComponent";
 import pathsStruct from "./Utils/PathsStruct";
 import Layout from "./ShopComponents/GlobalLayout/Layout";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Category from "./ShopComponents/Categories/Category";
-import {loggedInContext} from "./ShopComponents/Contexts/loggedInContext";
-import {fetchDataWithCredentials} from "./Utils/fetchDataWithCredentials";
 import Checkout from "./ShopComponents/Checkout/Checkout";
 
-const baseURL = process.env.REACT_APP_SERVER_URL
 
 function App() {
 

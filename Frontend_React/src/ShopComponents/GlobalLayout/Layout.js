@@ -2,11 +2,12 @@ import {Outlet} from "react-router-dom";
 import LayoutHeader from "./LayoutHeader";
 import LayoutNavigation from "./LayoutNavigation";
 import LayoutFooter from "./LayoutFooter";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {fetchData} from "../../Utils/fetchData";
 import NoPage from "../NoPage";
 import {categoryContext} from "../Contexts/categoryContext";
 import {productsContext} from "../Contexts/productsContext";
+import {loggedInContext} from "../Contexts/loggedInContext";
 import {fetchDataWithCredentials} from "../../Utils/fetchDataWithCredentials";
 
 const baseURL = process.env.REACT_APP_SERVER_URL
