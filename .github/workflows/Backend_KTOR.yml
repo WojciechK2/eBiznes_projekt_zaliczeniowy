@@ -24,9 +24,15 @@ jobs:
 
       - name: FixCORS
         run: sed -i 's+localhost:3000+wojciechklasa-frontend.azurewebsites.net+g' src/main/kotlin/com/example/plugins/HTTP.kt
-        
+
+      - name: DisplayHTTP.kt
+        run: less src/main/kotlin/com/example/plugins/HTTP.kt
+
       - name: FixCookies
         run: sed '22 i cookie.secure=true \n cookie.extensions["SameSite"] = "None"' src/main/kotlin/com/example/plugins/Sessions.kt
+        
+      - name: DisplayHTTP.kt
+        run: less src/main/kotlin/com/example/plugins/Sessions.kt
         
       - name: Login into DockerHub
         run: docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_PASSWORD
